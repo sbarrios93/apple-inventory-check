@@ -26,7 +26,7 @@ ZIPCODE = "02445"
 URL = "https://www.apple.com/shop/fulfillment-messages?store={}&parts.0={}&cppart=UNLOCKED/US&purchaseOption=fullPrice"
 
 
-client = Client(os.environ("PUSH_KEY"))
+client = Client(os.environ["PUSHSAFER_PRIVATE_KEY"])
 
 
 def checker() -> None:
