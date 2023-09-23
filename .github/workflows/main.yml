@@ -30,6 +30,6 @@ jobs:
     - name: Install dependencies
       run: rye sync
     - name: Run the check_availability script
-      run: python -m apple_stock_query
+      run: rye run python -m apple_stock_query
       env:
         PUSHSAFER_PRIVATE_KEY: ${{ secrets.PUSHSAFER_PRIVATE_KEY }}

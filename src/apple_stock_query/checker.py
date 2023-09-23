@@ -16,7 +16,7 @@ SEARCH_STORES = ["R076", "R149", "R021", "R346", "R110"]
 
 MODELS = {
     "iPhone 15 Pro Max 256GB Natural Titanium": "MU683LL/A",
-    "iPhone 15 Pro Max 512GB Natural Titanium": "MU63LL/A",
+    "iPhone 15 Pro Max 512GB Natural Titanium": "MU6D3LL/A",
     "iPhone 15 Blue": "MTM73LL/A"
 }
 
@@ -35,9 +35,13 @@ def checker() -> None:
         for combination_lookup in zip(SEARCH_STORES, [sku] * len(SEARCH_STORES)):
             response = requests.get(URL.format(*combination_lookup))
             data = json.loads(response.text)
-            state = data["body"]["content"]["pickupMessage"]["stores"][0][
+            try:
+                state = data["body"]["content"]["pickupMessage"]["stores"][0][
                 "partsAvailability"
             ][sku]["pickupDisplay"]
+            except KeyError:
+                print(f"{model} not available in {URL.format(*combination_lookup)})")
+                continue
 
             if state == "available":
                 store_name = data["body"]["content"]["pickupMessage"]["stores"][0][
