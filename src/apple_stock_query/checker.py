@@ -17,7 +17,6 @@ SEARCH_STORES = ["R076", "R149", "R021", "R346", "R110"]
 MODELS = {
     "iPhone 15 Pro Max 256GB Natural Titanium": "MU683LL/A",
     "iPhone 15 Pro Max 512GB Natural Titanium": "MU6D3LL/A",
-    "iPhone 15 Blue": "MTM73LL/A"
 }
 
 
