@@ -1,0 +1,22 @@
+[project]
+name = "apple-stock-query"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "sbarrios93", email = "sbarrios93@gmail.com" }]
+dependencies = [
+    "python-pushsafer>=1.1",
+    "python-dotenv>=1.0.0",
+]
+readme = "README.md"
+requires-python = ">= 3.9"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true

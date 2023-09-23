@@ -1,0 +1,35 @@
+name: Check Apple Inventory
+
+on:
+  push:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  check_inventory:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Rye
+      uses: sbarrios93/rye-rust-action@v0.1.0
+
+    - name: Set up Python 3.9
+      run: rye pin 3.9
+
+    - name: Set up cache
+      uses: actions/cache@v3.3.1
+      id: venv-cache
+      with:
+        path: .venv
+        key:
+            venv-3.9-${{ hashFiles('pyproject.toml') }}-${{
+            hashFiles('requirements.lock') }}-${{ hashFiles('requirements-dev.lock') }}-
+
+    - name: Install dependencies
+      run: rye sync
+    - name: Run the check_availability script
+      run: python -m apple_stock_query
+      env:
+        PUSHSAFER_PRIVATE_KEY: ${{ secrets.PUSHSAFER_PRIVATE_KEY }}
