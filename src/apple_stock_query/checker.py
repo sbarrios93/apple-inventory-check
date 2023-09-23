@@ -10,7 +10,7 @@ except:
     pass
 
 
-PUSH_DEVICE = os.getenv("72663")
+PUSH_DEVICE = 72663
 
 SEARCH_STORES = ["R076", "R149", "R021", "R346", "R110"]
 
@@ -26,7 +26,7 @@ ZIPCODE = "02445"
 URL = "https://www.apple.com/shop/fulfillment-messages?store={}&parts.0={}&cppart=UNLOCKED/US&purchaseOption=fullPrice"
 
 
-client = Client(os.getenv("PUSH_KEY"))
+client = Client(os.environ("PUSH_KEY"))
 
 
 def checker() -> None:
