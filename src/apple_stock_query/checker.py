@@ -22,8 +22,6 @@ MODELS = {
 }
 
 
-ZIPCODE = "02445"
-
 URL = "https://www.apple.com/shop/fulfillment-messages?store={}&parts.0={}&cppart=UNLOCKED/US&purchaseOption=fullPrice"
 
 
